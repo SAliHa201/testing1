@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+ {% load static %}
+ {% block content %}
+<link rel="stylesheet" herf="{% static 'page/css/style.css' %}">
+<h2 xmlns="http://www.w3.org/1999/html">contact us</h2>
+<p>Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within a matter of hours to help you.</p>
+<!--action {% url 'contact' %}-->
+<form id="contact-form" name="contact-form" action="{% url 'contact' %} " method="POST">
+    <!--must given Cross Site Request-->
+    {% csrf_token %}
+    <!--taking the name -->
+    <input type="text" id="name" name="name"> <Label >Your name</label><br></div>
+    </div></div><br>
+     <!--taking the email -->
+    <input type="text" id="email" name="email"> <Label >Your email</label><br></div></div></div><br>
+ <!--taking the subject -->
+    <input type="text" id="subject" name="subject"> <Label >Subject</label> </div></div></div><br><br>
+    <textarea type="text" id="massege" name="massege" rows="2"> </textarea>
+    <Label >Your massege</label> </div></div></div><br><br></form>
+<button onclick="document.getElementById('contact-form').submit();">Send</button></div></div>
+      {% endblock %}
